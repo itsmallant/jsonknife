@@ -1,0 +1,2 @@
+include ':app', ':libannotation', ':libcompiler', ':libruntime'
+rootProject.name='JsonKiller'
