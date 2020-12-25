@@ -1,7 +1,55 @@
 # JsonKiller
 使用APT，将注解的java对象生成JSONObject。
 
-注解说明：
+## gradle配置：
+```
+repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+        
+dependencies {
+	implementation 'com.github.itsmallant:JsonKiller:libannotation:v1.0.0'
+    implementation 'com.github.itsmallant:JsonKiller:libruntime:v1.0.0'
+    kapt 'com.github.itsmallant:JsonKiller:libcompiler:v1.0.0'
+	}        
+        
+```
+
+## 使用说明：
+
+1. 在需要转化为JSONObject的Java对象想打上注解`@JSONAble`:
+```
+@JSONAble
+public class Student {
+    protected String id;
+    ....
+}
+
+```
+
+2. 使用`JsonKnife.convert`方法将Java对象转化为JSONObject对象：
+```
+Student student = new Student();
+//...设置student相关属性
+JSONObject convert = JsonKnife.convert(student);
+
+```
+
+## 混淆配置：
+
+```
+
+ -keep public class **.JSONFactory{
+    *;
+ }
+-keepnames @com.znq.nanotation.JSONAble class * {}
+
+
+```
+
+
+## 注解说明：
 
 `JSONAble`：标注在需要生成JSONObject对象的Java Bean上；
 
