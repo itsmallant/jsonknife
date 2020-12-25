@@ -158,14 +158,12 @@ public class JSONProcessor extends AbstractProcessor {
                                 }
                             }
                         } else {
-                            messager.printMessage(Diagnostic.Kind.WARNING, "memberType = " + memberType.toString() + " member = " + member.getSimpleName().toString() + "\r\n");
                             if (Utils.isDeclaredJSONAble(typeUtils, elementUtils, Utils.parseClassInfo(memberType.toString()))) {
                                 Element fieldGetElement = findFieldGetElement(allMembers, member, modifiers);
                                 handleJSONAbleContainer(methodSpecBuilder, "source." + fieldGetElement.toString(), "json", 0, TYPE_JSONOBJECT, Utils.parseClassInfo(memberType.toString(), keyName));
                                 continue;
                             }
                         }
-                        String s = memberType.toString();
                         TypeElement itemTypeElement = elementUtils.getTypeElement(memberType.toString());
                         if (itemTypeElement != null && itemTypeElement.getAnnotation(JSONAble.class) != null) {
                             Element fieldGetElement = findFieldGetElement(allMembers, member, modifiers);
