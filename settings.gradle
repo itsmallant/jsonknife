@@ -1,2 +1,2 @@
-include ':app', ':libannotation', ':libcompiler', ':libruntime'
-rootProject.name='JsonKiller'
+include ':app', ':jsonknife-annotation', ':jsonknife-compiler', ':jsonknife-runtime'
+rootProject.name='jsonknife'

@@ -31,7 +31,14 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 
-    implementation project(':libannotation')
-    kapt project(':libcompiler')
-    implementation project(':libruntime')
+    //implementation 'com.github.itsmallant:JsonKiller:v1.0.0'
+
+//    implementation 'com.github.itsmallant:JsonKiller:libannotation:v1.0.0'
+//    implementation 'com.github.itsmallant:JsonKiller:libruntime:v1.0.0'
+//    kapt 'com.github.itsmallant:JsonKiller:libcompiler:v1.0.0'
+
+    implementation project(':jsonknife-annotation')
+    kapt project(':jsonknife-compiler')
+    implementation project(':jsonknife-runtime')
+
 }
