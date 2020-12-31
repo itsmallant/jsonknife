@@ -1,4 +1,4 @@
-# JsonKiller
+# jsonknife
 使用APT，将注解的java对象生成JSONObject。
 
 ## gradle配置：
