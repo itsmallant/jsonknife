@@ -9,9 +9,9 @@ repositories {
 		}
         
 dependencies {
-	implementation 'com.github.itsmallant:JsonKiller:libannotation:v1.0.0'
-    implementation 'com.github.itsmallant:JsonKiller:libruntime:v1.0.0'
-    kapt 'com.github.itsmallant:JsonKiller:libcompiler:v1.0.0'
+	implementation 'com.github.itsmallant.jsonknife:jsonknife-annotation:1.0.0'
+    implementation 'com.github.itsmallant.jsonknife:jsonknife-runtime:1.0.0'
+    kapt 'com.github.itsmallant.jsonknife:jsonknife-compiler:1.0.0'
 	}        
         
 ```
