@@ -9,9 +9,9 @@ repositories {
 		}
         
 dependencies {
-	implementation 'com.github.itsmallant.jsonknife:jsonknife-annotation:1.0.0'
-    implementation 'com.github.itsmallant.jsonknife:jsonknife-runtime:1.0.0'
-    kapt 'com.github.itsmallant.jsonknife:jsonknife-compiler:1.0.0'
+	implementation 'com.github.itsmallant.jsonknife:jsonknife-annotation:1.0.1'
+    implementation 'com.github.itsmallant.jsonknife:jsonknife-runtime:1.0.1'
+    kapt 'com.github.itsmallant.jsonknife:jsonknife-compiler:1.0.1'
 	}        
         
 ```
@@ -43,7 +43,7 @@ JSONObject convert = JsonKnife.convert(student);
  -keep public class **.JSONFactory{
     *;
  }
--keepnames @com.znq.nanotation.JSONAble class * {}
+-keepnames @com.znq.annotation.JSONAble class * {}
 
 
 ```
