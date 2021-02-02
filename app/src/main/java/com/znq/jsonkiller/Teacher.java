@@ -1,7 +1,7 @@
 package com.znq.jsonkiller;
 
-import com.znq.nanotation.GenerateName;
-import com.znq.nanotation.JSONAble;
+import com.znq.annotation.GenerateName;
+import com.znq.annotation.JSONAble;
 
 /**
  * @desc:
@@ -13,6 +13,8 @@ public class Teacher {
     String name;
     @GenerateName("class")
     String clazz;
+
+    int id;
 
     public Teacher() {
     }

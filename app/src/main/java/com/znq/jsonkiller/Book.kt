@@ -1,7 +1,7 @@
 package com.znq.jsonkiller
 
-import com.znq.nanotation.GenerateName
-import com.znq.nanotation.JSONAble
+import com.znq.annotation.GenerateName
+import com.znq.annotation.JSONAble
 
 /**
  *@desc:
@@ -14,6 +14,8 @@ class Book(@GenerateName("book_name")
            @GenerateName("book_authors")
            val authors: List<String>
 ) {
+    var id:Int = 0
+    var is_Ok = false
     companion object {
         private const val TAG = "Book"
     }

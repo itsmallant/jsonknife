@@ -31,14 +31,14 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 
+//
+//    implementation 'com.github.itsmallant.jsonknife:jsonknife-annotation:1.0.0'
+//    implementation 'com.github.itsmallant.jsonknife:jsonknife-runtime:1.0.0'
+//    kapt 'com.github.itsmallant.jsonknife:jsonknife-compiler:1.0.0'
 
-    implementation 'com.github.itsmallant.jsonknife:jsonknife-annotation:1.0.0'
-    implementation 'com.github.itsmallant.jsonknife:jsonknife-runtime:1.0.0'
-    kapt 'com.github.itsmallant.jsonknife:jsonknife-compiler:1.0.0'
 
-
-//    implementation project(':jsonknife-annotation')
-//    kapt project(':jsonknife-compiler')
-//    implementation project(':jsonknife-runtime')
+    implementation project(':jsonknife-annotation')
+    kapt project(':jsonknife-compiler')
+    implementation project(':jsonknife-runtime')
 
 }

@@ -5,9 +5,9 @@ import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.MethodSpec;
 import com.squareup.javapoet.TypeSpec;
-import com.znq.nanotation.Exclude;
-import com.znq.nanotation.GenerateName;
-import com.znq.nanotation.JSONAble;
+import com.znq.annotation.Exclude;
+import com.znq.annotation.GenerateName;
+import com.znq.annotation.JSONAble;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -42,7 +42,7 @@ import javax.tools.Diagnostic;
  **/
 @AutoService(Processor.class)
 @SupportedSourceVersion(SourceVersion.RELEASE_8)
-@SupportedAnnotationTypes("com.znq.nanotation.JSONAble")
+@SupportedAnnotationTypes("com.znq.annotation.JSONAble")
 public class JSONProcessor extends AbstractProcessor {
     private static final String TAG = "JSONProcessor";
 
@@ -288,16 +288,23 @@ public class JSONProcessor extends AbstractProcessor {
         String fieldName = fieldElement.toString();
         String getMethodName = String.format("get%s()", fieldName);
         String isMethodName = "";
+        String isMethodName2 = "";
         if (fieldElement.asType().getKind() == TypeKind.BOOLEAN) {
             isMethodName = String.format("is%s()", fieldName);
         }
+
+        if (fieldName.startsWith("is")) {
+            isMethodName2 = String.format("%s()", fieldName);
+        }
+
 
         for (Element element : allElements) {
             TypeMirror elementTypeMirror = element.asType();
             if (elementTypeMirror.getKind() == TypeKind.EXECUTABLE) {
                 String methodName = element.toString();
                 if (methodName.equalsIgnoreCase(getMethodName) ||
-                        methodName.equalsIgnoreCase(isMethodName)) {
+                        methodName.equalsIgnoreCase(isMethodName) ||
+                        methodName.equalsIgnoreCase(isMethodName2)) {
                     return element;
                 }
             }

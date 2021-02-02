@@ -1,4 +1,4 @@
-package com.znq.nanotation;
+package com.znq.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
  * @author: ningqiang.zhao
  * @time: 2020-12-14 18:07
  **/
-@Target(ElementType.TYPE)
+@Target(ElementType.FIELD)
 @Retention(RetentionPolicy.CLASS)
-public @interface JSONAble {
+public @interface Exclude {
 }

@@ -1,7 +1,7 @@
 package com.znq.jsonkiller;
 
-import com.znq.nanotation.GenerateName;
-import com.znq.nanotation.JSONAble;
+import com.znq.annotation.GenerateName;
+import com.znq.annotation.JSONAble;
 
 import java.util.HashMap;
 import java.util.List;
@@ -21,6 +21,7 @@ public class Student {
     private Map<String, HashMap<String, Teacher>> favoriteTeachers;
     @GenerateName("favorite_books")
     Book[] favoriteBooks;
+    public int id2;
 
 
     public HashMap<String, Teacher> getTeachers() {

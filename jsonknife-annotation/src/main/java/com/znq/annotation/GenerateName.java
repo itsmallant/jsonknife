@@ -1,4 +1,4 @@
-package com.znq.nanotation;
+package com.znq.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

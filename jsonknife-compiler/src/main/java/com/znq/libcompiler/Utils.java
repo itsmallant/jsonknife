@@ -1,6 +1,6 @@
 package com.znq.libcompiler;
 
-import com.znq.nanotation.JSONAble;
+import com.znq.annotation.JSONAble;
 
 import java.util.Map;
 
@@ -99,6 +99,10 @@ public class Utils {
 
 
     static ClassInfo parseClassInfo(String className) {
+        TypeElement typeElement = JSONProcessor.elementUtils.getTypeElement(erasure(className));
+        if (typeElement == null) {//基本类型的数据类型
+            return null;
+        }
         TypeMirror typeMirror = JSONProcessor.elementUtils.getTypeElement(erasure(className)).asType();
         if (isSubtypeOfMap(JSONProcessor.typeUtils, typeMirror)) {
             //map
@@ -129,6 +133,9 @@ public class Utils {
 
 
     static boolean isDeclaredJSONAble(Types typeUtils, Elements elementUtils, ClassInfo classInfo) {
+        if (classInfo == null) {//基本类型的数据类型
+            return false;
+        }
         TypeMirror classTypeMirror = elementUtils.getTypeElement(classInfo.domainClassName).asType();
         if (classInfo.declareClassName != null && (isSubtypeOfIterable(typeUtils, classTypeMirror) || isSubtypeOfMap(typeUtils, classTypeMirror))) {
             ClassInfo declareClassInfo = parseClassInfo(classInfo.declareClassName);
